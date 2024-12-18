@@ -1,0 +1,19 @@
+/* GENERAL */
+
+.app-section {
+  width: 100%;
+  height: 100vh;
+  /* display: grid;
+  grid-template-columns: min-content 1fr; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .app-section {
+    flex-direction: column-reverse;
+    max-height: 100vh;
+  }
+}

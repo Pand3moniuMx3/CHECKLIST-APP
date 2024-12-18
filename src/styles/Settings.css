@@ -1,0 +1,17 @@
+/* SETTINGS */
+
+.navbar .settings {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  z-index: 2;
+}
+.navbar .settings img {
+  max-width: 20px;
+}
+.navbar .settings p {
+  font-size: 18px;
+  line-height: 1;
+}

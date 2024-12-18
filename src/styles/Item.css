@@ -1,0 +1,35 @@
+:root {
+  --checkbox-size: 18px;
+}
+
+.item {
+  width: 100%;
+  height: min-content;
+  display: grid;
+  grid-template-columns: min-content 1fr 20px;
+  align-items: center;
+  gap: var(--inner-gap);
+  padding-bottom: var(--inner-gap);
+  border-bottom: 1px solid var(--clr-grey);
+}
+
+.item .checkbox {
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  border: 1px solid var(--clr-grey);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.item .checkbox:checked {
+  border: 1px solid var(--clr-light);
+  color: var(--clr-white);
+  background-image: url(../../public/icons/small-check.svg);
+  background-size: 8px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.item .close-btn {
+  width: 10px;
+  cursor: pointer;
+}

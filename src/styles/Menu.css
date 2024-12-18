@@ -1,0 +1,42 @@
+.menu-component {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: var(--repo-menu-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--clr-white);
+}
+.menu-component .container {
+  width: min(var(--content-width), 90vw);
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  gap: var(--inner-gap);
+  align-items: center;
+}
+
+.menu-component .container .add-checklist {
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-component {
+    top: auto;
+    bottom: 0;
+  }
+  .menu-component .container {
+    grid-template-columns: min-content 1fr;
+  }
+  .menu-component .container h2 {
+    display: none;
+  }
+  .menu-component .container .add-checklist {
+    width: 100%;
+  }
+}

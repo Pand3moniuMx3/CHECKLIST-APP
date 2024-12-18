@@ -1,0 +1,10 @@
+:root {
+  --repo-menu-height: 90px;
+}
+
+.repo {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}

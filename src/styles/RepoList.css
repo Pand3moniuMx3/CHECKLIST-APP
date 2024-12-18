@@ -1,0 +1,15 @@
+.repo-list {
+  width: min(var(--content-width), 90vw);
+  display: grid;
+  height: min-content;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: var(--global-gap);
+  padding-block: var(--repo-menu-height) var(--global-padding);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .repo-list {
+    padding-block: var(--global-padding) var(--repo-menu-height);
+  }
+}
