@@ -125,7 +125,7 @@ function RepoSettings({
 function RepoList({ listArray }) {
   return (
     <>
-      {listArray >= 1 ? (
+      {listArray.length >= 1 ? (
         <div className="repo-list">
           {listArray.map((list) => (
             <RepoItem list={list} key={list.id} />
