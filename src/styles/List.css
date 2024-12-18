@@ -17,7 +17,30 @@
   gap: var(--global-gap);
 }
 
-.list-container .checklist-title {
+.list-container h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  color: var(--clr-grey);
+}
+
+/* CHECKLIST TITLE */
+
+.list-container .title-form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  gap: var(--global-gap);
+  align-items: center;
+}
+.list-container .title-form a img {
+  width: 20px;
+}
+
+.list-container .title-form .checklist-title {
   min-width: 100%;
   display: flex;
   border-bottom: 1px solid var(--clr-grey);
@@ -29,33 +52,26 @@
   padding-bottom: var(--inner-gap);
   transition: var(--transition);
 }
-.list-container .checklist-title:hover {
+.list-container .title-form .checklist-title:hover {
   border-bottom: 1px solid var(--clr-theme);
   border-top: none;
   border-right: none;
   border-left: none;
 }
-.list-container .checklist-title:focus {
+.list-container .title-form .checklist-title:focus {
   border-bottom: 1px solid var(--clr-theme);
   border-top: none;
   border-right: none;
   border-left: none;
 }
 
-.list-container h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-  color: var(--clr-grey);
-}
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 600px) {
   .list-container {
     padding-top: var(--global-padding);
   }
-  .list-container .checklist-title {
+  .list-container .title-form .checklist-title {
     font-size: 1.5em;
   }
   .list-container h3 {

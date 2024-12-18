@@ -82,7 +82,7 @@ function App() {
     );
   } else if (sortListsBy === "items") {
     sortedLists = [...lists].sort((a, b) => a.items.length - b.items.length);
-  }
+  } else if (sortListsBy === "newest") sortedLists = [...lists].reverse();
 
   return (
     <>
@@ -110,7 +110,7 @@ function App() {
               element={
                 <Checklist
                   fullScreen={fullScreen}
-                  checklist={lists}
+                  checklist={list}
                   updateChecklist={updateChecklist}
                   onDeleteList={handleDeleteList}
                 />

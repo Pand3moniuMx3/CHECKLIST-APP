@@ -60,6 +60,7 @@ export default function Checklist({
     sortedItems = items
       .slice()
       .sort((a, b) => Number(a.packed) - Number(b.packed));
+  if (sortBy === "newest") sortedItems = items.slice().reverse();
 
   // changing checkbox behavior
   const [checkboxBehavior, setCheckboxBehavior] = useState("keep");
@@ -168,9 +169,13 @@ function Navbar({
           type="number"
           min="1"
           value={productQuantity}
+          className="btn secondary"
           onChange={(e) => setProductQuantity(Number(e.target.value))}
+          style={{ textAlign: "center" }}
         />
-        <button type="submit">Add</button>
+        <button type="submit" className="btn">
+          +
+        </button>
       </form>
     </div>
   );
@@ -194,6 +199,10 @@ function Settings({
         {
           name: "Sort by input order",
           value: "input",
+        },
+        {
+          name: "Sort by newest",
+          value: "newest",
         },
         {
           name: "Sort by packed status",
@@ -324,7 +333,7 @@ function List({
 }) {
   return (
     <div className="list-container">
-      <form>
+      <form className="title-form">
         <input
           type="text"
           className="checklist-title"
@@ -332,6 +341,9 @@ function List({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <a href="/">
+          <img src="/icons/home-icon.svg" alt="close list" />
+        </a>
       </form>
       {arrayLength >= 1 ? (
         <div className="list">

@@ -23,6 +23,7 @@ export default function Repo({
         fullScreen={fullScreen}
         onSettingsTabOpen={handleOpeningSettingsTab}
         onAddList={onAddList}
+        listId={listArray.id}
       />
       <RepoList listArray={listArray} />
       <RepoSettings
@@ -35,15 +36,15 @@ export default function Repo({
   );
 }
 
-function Menu({ fullScreen, onSettingsTabOpen, onAddList }) {
+function Menu({ fullScreen, onSettingsTabOpen, onAddList, listId }) {
   return (
     <div className="menu-component">
       <div className="container">
         <div className="settings-btn" onClick={onSettingsTabOpen}></div>
         <h2>My lists</h2>
-        <p className="btn add-checklist" onClick={onAddList}>
+        <div className="btn add-checklist" onClick={onAddList}>
           {fullScreen ? `+` : `Add new list`}
-        </p>
+        </div>
       </div>
     </div>
   );
@@ -63,6 +64,10 @@ function RepoSettings({
         {
           name: "Sort by input order",
           value: "input",
+        },
+        {
+          name: "Sort by newest",
+          value: "newest",
         },
         {
           name: "Sort by completion",
@@ -92,7 +97,7 @@ function RepoSettings({
         />
       </div>
       {repoSettingsArray.map((setting) => (
-        <div className={`dropdown ${dropdownState ? "closed" : ""}`}>
+        <div className={`dropdown ${dropdownState ? "" : "closed"}`}>
           <div className="title">
             <p onClick={handleDropdownState}>{setting.title}</p>
             {setting.options.length >= 2 && (
@@ -120,11 +125,25 @@ function RepoSettings({
 function RepoList({ listArray }) {
   return (
     <>
-      <div className="repo-list">
-        {listArray.map((list) => (
-          <RepoItem list={list} key={list.id} />
-        ))}
-      </div>
+      {listArray >= 1 ? (
+        <div className="repo-list">
+          {listArray.map((list) => (
+            <RepoItem list={list} key={list.id} />
+          ))}
+        </div>
+      ) : (
+        <h3
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "var(--clr-grey)",
+          }}
+        >
+          Add more lists
+        </h3>
+      )}
     </>
   );
 }

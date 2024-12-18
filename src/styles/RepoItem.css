@@ -14,8 +14,7 @@
   text-decoration: none;
 }
 .repo-item:hover {
-  /* border: 1px solid var(--clr-theme); */
-  background: var(--clr-theme);
+  border: 1px solid var(--clr-theme);
   border-radius: var(--sharp-corners);
 }
 
@@ -49,7 +48,7 @@
   border: 1px solid var(--clr-grey);
 }
 .repo-item.completed:hover {
-  background: var(--clr-light);
+  border: 1px solid var(--clr-light);
 }
 
 .repo-item.completed .title {
